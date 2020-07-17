@@ -9,15 +9,22 @@
 
     <!-- Define your beans here -->
     
-    <bean id = "myFortune"
-    	class = "springdemo.HappyFortuneService">
+    <bean id="myFortune"
+    	class="springdemo.HappyFortuneService">
     </bean>
     
-    <bean id = "myCoach"
-    	class = "springdemo.TrackCoach">
+    <bean id="myCoach"
+    	class="springdemo.TrackCoach">
     	
     	<!-- Injeção de construtor -->
-    	<constructor-arg ref = "myFortune" />
+    	<constructor-arg ref="myFortune" />
+    </bean>
+    
+    <bean id="myCricketCoach"
+    	class="springdemo.CricketCoach">
+    	
+    	<!-- injeção setter -->
+    	<property name="fortuneService" ref="myFortune"></property>
     </bean>
     
 </beans>
