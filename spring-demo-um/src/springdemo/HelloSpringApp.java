@@ -15,6 +15,7 @@ public class HelloSpringApp {
 		
 		// chamar métodos a partir do Bean
 		System.out.println(theCoach.getDailyWorkout());
+		System.out.println(theCoach.getDailyFortune());
 
 		// fechar context
 		context.close();

@@ -9,8 +9,15 @@
 
     <!-- Define your beans here -->
     
+    <bean id = "myFortune"
+    	class = "springdemo.HappyFortuneService">
+    </bean>
+    
     <bean id = "myCoach"
-    	class = "springdemo.BaseballCoach">
+    	class = "springdemo.TrackCoach">
+    	
+    	<!-- Injeção de construtor -->
+    	<constructor-arg ref = "myFortune" />
     </bean>
     
 </beans>
