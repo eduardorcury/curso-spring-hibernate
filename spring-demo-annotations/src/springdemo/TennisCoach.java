@@ -6,12 +6,28 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 	
+	@Autowired
 	private FortuneService fortuneService;
 	
+	// Contrutor padrão
+	public TennisCoach() {
+		System.out.println("Dentro do construtor");
+	}
+	
+	/* 
+	Injeção por método aleatório
+	@Autowired
+	public void metodoAleatorio(FortuneService fortuneService) {
+		this.fortuneService = fortuneService;
+		System.out.println("Dentro do método setter");
+	}
+	
+	Injeção por construtor
 	@Autowired
 	public TennisCoach(FortuneService theFortuneService) {
 		fortuneService = theFortuneService;
 	}
+	*/
 
 	@Override
 	public String getDailyWorkout() {
