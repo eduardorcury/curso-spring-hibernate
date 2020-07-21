@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,24 +20,20 @@ public class FileFortuneService implements FortuneService {
 	@Override
 	public String getFortune() {
 		
-		try {
-			addData();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		
 		int index = myRandom.nextInt(data.size());
 		String theFortune = data.get(index);
 		return theFortune;
 		
 	}
 	
+	@PostConstruct
 	public void addData() throws FileNotFoundException {
 		Scanner scanner =  new Scanner(file);
 		while (scanner.hasNextLine()) {
 			data.add(scanner.nextLine());
 		}
 		scanner.close();
+		System.out.println(data.size());
 	}
 
 }

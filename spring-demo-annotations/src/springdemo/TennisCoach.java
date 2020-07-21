@@ -1,10 +1,15 @@
 package springdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("singleton")
 public class TennisCoach implements Coach {
 	
 	@Autowired
@@ -14,6 +19,18 @@ public class TennisCoach implements Coach {
 	// Contrutor padrÃ£o
 	public TennisCoach() {
 		System.out.println("Dentro do construtor");
+	}
+	
+	// método ao iniciar o Bean
+	@PostConstruct
+	public void iniciar() {
+		System.out.println("Criando Bean");
+	}
+	
+	// método ao destruir o bean
+	@PreDestroy
+	public void destruir() {
+		System.out.println("Destruindo Bean");
 	}
 	
 	/* 
@@ -33,7 +50,7 @@ public class TennisCoach implements Coach {
 
 	@Override
 	public String getDailyWorkout() {
-		return "Praticar tÃªnis";
+		return "Praticar tênis";
 	}
 
 	@Override
