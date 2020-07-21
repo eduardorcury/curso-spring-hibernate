@@ -17,6 +17,8 @@ public class AnnotationBeanScopeDemoApp {
 		
 		System.out.println("Objeto theCoach = " + theCoach);
 		System.out.println("Objeto alphaCoach = " + alphaCoach);
+		
+		context.close();
 
 	}
 

@@ -16,7 +16,7 @@ public class TennisCoach implements Coach {
 	@Qualifier("fileFortuneService")
 	private FortuneService fortuneService;
 	
-	// Contrutor padr√£o
+	// Contrutor padr„o
 	public TennisCoach() {
 		System.out.println("Dentro do construtor");
 	}
@@ -34,14 +34,14 @@ public class TennisCoach implements Coach {
 	}
 	
 	/* 
-	Inje√ß√£o por m√©todo aleat√≥rio
+	InjeÁ„o por mÈtodo aleatÛrio
 	@Autowired
 	public void metodoAleatorio(FortuneService fortuneService) {
 		this.fortuneService = fortuneService;
-		System.out.println("Dentro do m√©todo setter");
+		System.out.println("Dentro do mÈtodo setter");
 	}
 	
-	Inje√ß√£o por construtor
+	InjeÁ„oß√£o por construtor
 	@Autowired
 	public TennisCoach(FortuneService theFortuneService) {
 		fortuneService = theFortuneService;

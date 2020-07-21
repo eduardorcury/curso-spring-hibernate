@@ -33,7 +33,6 @@ public class FileFortuneService implements FortuneService {
 			data.add(scanner.nextLine());
 		}
 		scanner.close();
-		System.out.println(data.size());
 	}
 
 }
