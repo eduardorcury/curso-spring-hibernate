@@ -6,6 +6,7 @@ spring-demo-annotations/bin/
 !**/src/main/**
 !**/src/test/**
 .metadata
+lib/*
 
 ### STS ###
 .apt_generated
