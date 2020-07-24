@@ -35,6 +35,23 @@
 	
 	<br><br>
 	
+	Favorite Language:
+	
+	Java <form:radiobutton path="favoriteLanguage" value="Java"/>
+	C++ <form:radiobutton path="favoriteLanguage" value="C++"/>
+	Kotlin <form:radiobutton path="favoriteLanguage" value="Kotlin"/>
+	PHP <form:radiobutton path="favoriteLanguage" value="PHP"/>
+	
+	<br><br>
+	
+	Operating Systems:
+	
+	Linux <form:checkbox path="operatingSystems" value="Linux"/>
+	MacOS <form:checkbox path="operatingSystems" value="MacOS"/>
+	Windows <form:checkbox path="operatingSystems" value="Windows"/>
+	
+	<br><br>
+	
 	<input type="submit" value="Submit">
 	
 	</form:form>
