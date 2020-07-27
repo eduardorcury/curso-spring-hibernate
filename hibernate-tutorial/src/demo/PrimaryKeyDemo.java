@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import demo.entity.Student;
 
-public class CreateStudentDemo {
+public class PrimaryKeyDemo {
 
 	public static void main(String[] args) {
 
@@ -20,16 +20,20 @@ public class CreateStudentDemo {
 		Session session = factory.getCurrentSession();
 		
 		try {
-			// criando objeto
-			System.out.println("Criando objeto...");
-			Student tempStudent = new Student("Eduardo", "Ribeiro", "eduardo@gmail.com");
+			// criando três objetos
+			System.out.println("Criando objetos...");
+			Student tempStudent1 = new Student("Eduardo", "Ribeiro", "eduardo@gmail.com");
+			Student tempStudent2 = new Student("Jõao", "Silva", "joao@gmail.com");
+			Student tempStudent3 = new Student("Maria", "Costa", "maria@gmail.com");
 			
 			// começando transação
 			session.beginTransaction();
 			
 			// salvando objeto
-			System.out.println("Salvando objeto...");
-			session.save(tempStudent);
+			System.out.println("Salvando objetos...");
+			session.save(tempStudent1);
+			session.save(tempStudent2);
+			session.save(tempStudent3);
 			
 			// commitando transação
 			session.getTransaction().commit();
@@ -37,7 +41,7 @@ public class CreateStudentDemo {
 		} finally {
 			session.close();
 		}
-	
+
 	}
 
 }
