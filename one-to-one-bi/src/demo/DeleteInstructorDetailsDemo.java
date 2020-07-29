@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 import demo.entity.Instructor;
 import demo.entity.InstructorDetail;
 
-public class GetInstructorDetailsDemo {
+public class DeleteInstructorDetailsDemo {
 
 	public static void main(String[] args) {
 
@@ -26,12 +26,20 @@ public class GetInstructorDetailsDemo {
 			// começando transação
 			session.beginTransaction();
 			
-			Integer id = 3;
+			Integer id = 4;
 			InstructorDetail instructorDetail = session.get(InstructorDetail.class, id);
 			
 			System.out.println("InstructorDetail: " + instructorDetail);
 			
 			System.out.println("Objeto associado: " + instructorDetail.getInstructor());
+			
+			System.out.println("Deletando objeto...");
+			
+			// quebrando a ligação com outro objeto
+			instructorDetail.getInstructor().setInstructorDetail(null);
+			
+			session.delete(instructorDetail);
+			
 			
 			// commitando transação
 			session.getTransaction().commit();
