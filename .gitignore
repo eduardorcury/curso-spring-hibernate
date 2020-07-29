@@ -3,6 +3,7 @@ target/
 spring-demo-um/bin/
 spring-demo-annotations/bin/
 hibernate-tutorial/bin/
+one-to-one-uni/bin/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
