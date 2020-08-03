@@ -5,6 +5,7 @@ spring-demo-annotations/bin/
 hibernate-tutorial/bin/
 one-to-one-uni/bin/
 one-to-one-bi/bin/
+one-to-many/bin/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
