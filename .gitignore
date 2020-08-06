@@ -1,5 +1,6 @@
 HELP.md
 target/
+bin/
 spring-demo-um/bin/
 spring-demo-annotations/bin/
 hibernate-tutorial/bin/
