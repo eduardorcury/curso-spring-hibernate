@@ -12,6 +12,7 @@ one-to-many/bin/
 !**/src/test/**
 .metadata
 lib/*
+lib/
 
 ### STS ###
 .apt_generated
