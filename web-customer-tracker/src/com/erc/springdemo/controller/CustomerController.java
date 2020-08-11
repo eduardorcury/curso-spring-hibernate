@@ -5,10 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.erc.springdemo.dao.CustomerDAO;
 import com.erc.springdemo.entity.Customer;
+import com.erc.springdemo.service.CustomerService;
 
 @Controller
 @RequestMapping("/customer")
@@ -16,13 +17,13 @@ public class CustomerController {
 	
 	// spring seleciona a classe que implementa a interface
 	@Autowired
-	private CustomerDAO customerDAO;
+	private CustomerService customerService;
 	
-	@RequestMapping("/list")
+	@GetMapping("/list")
 	public String listCustomers(Model theModel) {
 		
-		// retornando objetos DAO
-		List<Customer> customers = customerDAO.getCustomers();
+		// retornando do Service
+		List<Customer> customers = customerService.getCustomers();
 		
 		// adicionar objetos ao model
 		theModel.addAttribute("customers", customers);
