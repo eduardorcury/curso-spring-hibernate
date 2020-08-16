@@ -34,3 +34,57 @@ public class MyDemoLoggingAspect {
 > Símbolo * significa qualquer (com qualquer retorno, em qualquer classe e com qualquer nome).
 
 > (..) siginifica com qualquer parâmetro (um ou mais de qualquer tipo).
+
+#### Pointcut Declarations
+
+Combinando expressions para excluir getters e setters:
+
+```java
+// todos os métodos no pacote dao
+@Pointcut("execution(* com.erc.aopdemo.dao.*.*(..))")
+private void forDaoPackage() { }
+	
+// apenas getters do pacote dao
+@Pointcut("execution(* com.erc.aopdemo.dao.*.get*(..))")
+private void getter() { }
+	
+// apenas setters do pacote dao
+@Pointcut("execution(* com.erc.aopdemo.dao.*.set*(..))")
+private void setter() {	}
+	
+// excluindo getters e setters
+@Pointcut("forDaoPackage() && !(getter() || setter())")
+private void forDaoPackageNoGetterSetter() { }
+	
+@Before("forDaoPackageNoGetterSetter()")
+public void beforeAddAccountAdvice() {
+	System.out.println("\n=====> @Before advice");
+}
+```
+
+#### JoinPointers
+
+Permitem acessar dados do método (parâmetros e assinatura)
+
+```java
+@Before("com.erc.aopdemo.aspect.AopExpressions.forDaoPackageNoGetterSetter()")
+public void beforeAddAccountAdvice(JoinPoint theJoinPoint) {
+
+	System.out.println("\n=====> @Before advice");
+		
+	// mostrando assinatura do método
+	MethodSignature methodSig = (MethodSignature) theJoinPoint.getSignature();
+	System.out.println("Método: " + methodSig);
+		
+	// mostrando argumentos do método
+	Object[] args = theJoinPoint.getArgs();
+	for (Object tempArg : args) {
+		System.out.println(tempArg);
+		if (tempArg instanceof Account) {
+			Account theAccount = (Account) tempArg;
+			System.out.println("Account name: " + theAccount.getName());
+			System.out.println("Account level: " + theAccount.getLevel());
+		}
+	}
+}
+```

@@ -17,14 +17,16 @@ public class MainDemoApp {
 		MembershipDAO membershipDAO = context.getBean("membershipDAO", MembershipDAO.class);
 		
 		Account account = new Account();
+		account.setName("eduardo");
+		account.setLevel("admin");
 		
 		accountDAO.addAccount(account, true);
 		accountDAO.doWork();
 		
 		accountDAO.setName("foo");
 		accountDAO.setServiceCode("gold");
-		String name = accountDAO.getName();
-		String code = accountDAO.getServiceCode();
+		accountDAO.getName();
+		accountDAO.getServiceCode();
 		
 		membershipDAO.addAccount();
 		membershipDAO.goToSleep();
