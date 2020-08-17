@@ -26,8 +26,21 @@ public class MyDemoLoggingAspect {
 		
 		System.out.println("\n======> Result is: " + result);
 		
+		convertAccountNamesToUpperCase(result);
+		
+		System.out.println("\n======> Result in UpperCase is: " + result);
+		
 	}
 	
+	private void convertAccountNamesToUpperCase(List<Account> result) {
+
+		for (Account account : result) {
+			String upperName = account.getName().toUpperCase();
+			account.setName(upperName);
+		}
+		
+	}
+
 	@Before("com.erc.aopdemo.aspect.AopExpressions.forDaoPackageNoGetterSetter()")
 	public void beforeAddAccountAdvice(JoinPoint theJoinPoint) {
 		System.out.println("\n=====> @Before advice");

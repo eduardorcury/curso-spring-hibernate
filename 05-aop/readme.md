@@ -88,3 +88,15 @@ public void beforeAddAccountAdvice(JoinPoint theJoinPoint) {
 	}
 }
 ```
+
+## @AfterReturning
+
+Advice executado depois que o método retorna um valor
+
+```java
+@AfterReturning(pointcut = "execution(* com.erc.aopdemo.dao.AccountDAO.findAccounts(..))", returning = "result")
+public void afterReturningFindAccountsAdvice(JoinPoint theJoinPoint, List<Account> result) {
+	....
+}
+
+```
