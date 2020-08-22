@@ -13,6 +13,7 @@ one-to-many/bin/
 .metadata
 lib/*
 lib/
+Servers/
 
 ### STS ###
 .apt_generated
