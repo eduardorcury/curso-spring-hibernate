@@ -23,15 +23,17 @@
 		Role(s): <security:authentication property="principal.authorities"/>
 	</p>
 	
-	<hr>
+	<security:authorize access="hasRole('MANAGER')">
+		<p>
+			<a href="${pageContext.request.contextPath}/leaders">Leadership Meeting (Only for Managers)</a>
+		</p>
+	</security:authorize>
 	
-	<p>
-		<a href="${pageContext.request.contextPath}/leaders">Leadership Meeting (Only for Managers)</a>
-	</p>
-	
-	<p>
-		<a href="${pageContext.request.contextPath}/systems">Systems Page (Only for Admins)</a>
-	</p>
+	<security:authorize access="hasRole('ADMIN')">
+		<p>
+			<a href="${pageContext.request.contextPath}/systems">Systems Page (Only for Admins)</a>
+		</p>
+	</security:authorize>
 	
 	<hr>
 
