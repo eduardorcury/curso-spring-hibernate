@@ -16,11 +16,23 @@
 	<p>Welcome to the Company Home Page!</p>
 
 	<hr>
+	
 	<p>
 		User: <security:authentication property="principal.username"/>
 		<br><br>
 		Role(s): <security:authentication property="principal.authorities"/>
 	</p>
+	
+	<hr>
+	
+	<p>
+		<a href="${pageContext.request.contextPath}/leaders">Leadership Meeting (Only for Managers)</a>
+	</p>
+	
+	<p>
+		<a href="${pageContext.request.contextPath}/systems">Systems Page (Only for Admins)</a>
+	</p>
+	
 	<hr>
 
 	<form:form action="${pageContext.request.contextPath}/logout"
