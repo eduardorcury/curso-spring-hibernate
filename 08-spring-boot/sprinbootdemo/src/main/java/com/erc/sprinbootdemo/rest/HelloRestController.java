@@ -12,5 +12,10 @@ public class HelloRestController {
 	public String helloWorld() {
 		return "Hello World! Server time is: " + LocalDateTime.now();
 	}
+	
+	@GetMapping("/workout")
+	public String getDailyWorkout() {
+		return "Run 5 miles";
+	}
 
 }
