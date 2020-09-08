@@ -3,7 +3,6 @@ package com.erc.cruddemo.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -23,7 +22,6 @@ public class EmployeeDaoHibernateImpl implements EmployeeDao {
 	}
 
 	@Override
-	@Transactional
 	public List<Employee> findAll() {
 		
 		Session session = entityManager.unwrap(Session.class);
@@ -36,6 +34,38 @@ public class EmployeeDaoHibernateImpl implements EmployeeDao {
 		
 	}
 
+	@Override
+	public Employee findById(int theId) {
+		
+		Session session = entityManager.unwrap(Session.class);
+		
+		Employee employee = session.get(Employee.class, theId);
+		
+		return employee;
+	}
+
+	@Override
+	public void save(Employee theEmployee) {
+
+		Session session = entityManager.unwrap(Session.class);
+		
+		session.saveOrUpdate(theEmployee);
+		
+	}
+
+	@Override
+	public void deleteById(int theId) {
+		
+		Session session = entityManager.unwrap(Session.class);
+		
+		Query theQuery = session.createQuery("delete from Employee where id=:employeeId");
+		
+		theQuery.setParameter("employeeId", theId);
+		
+		theQuery.executeUpdate();
+		
+	}
+	
 }
 
 

@@ -1,10 +1,10 @@
-package com.erc.cruddemo.dao;
+package com.erc.cruddemo.service;
 
 import java.util.List;
 
 import com.erc.cruddemo.entity.Employee;
 
-public interface EmployeeDao {
+public interface EmployeeService {
 	
 	public List<Employee> findAll();
 	
