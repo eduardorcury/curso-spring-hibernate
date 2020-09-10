@@ -15,3 +15,9 @@ Tecnologias abordadas:
 - JPA;
 - Hibernate;
 - Thymeleaf;
+
+## Certificado
+
+<p align="center">
+  <img width="800" height="595" src="https://github.com/eduardorcury/curso-spring-hibernate/blob/master/certificado-spring-hibernate.jpg">
+</p>
